@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <title>Survey|App</title>
+  </head>
+  <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+  <body class="bg-gray-100">
+    <div class="flex h-screen">
+      {% include "layouts/sidebar.html"%}
+      <div class="flex-1 flex flex-col overflow-auto">
+        {% include "layouts/navbar.html"%}
+        <br />
+        {% block content %}{% endblock content %}
+      </div>
+    </div>
+  </body>
+  <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/form.js' %}"></script>
+
+  <script>
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,103 @@
+{% extends "base.html"%} 
+{% load static%}
+{% block content %}
+
+<!-- component -->
+<div class="py-2">
+  <div
+    class="
+      max-w-7xl
+      mx-auto
+      bg-white
+      rounded-xl
+      shadow-md
+      md:max-w-2xl
+     
+      lg:px-8
+      sm:px-6
+      border-t-4 border-red-500
+    "
+  >
+    <h1 class="text-2xl font-medium text-center">Survey</h1>
+    <div class="overflow-auto">
+      <div class="p-3">
+        <div class="tracking-wide text-lg text-black font-semibold">
+          <span> {{ surveylist.title }} </span>
+        </div>
+        <hr>
+        <div class="tracking-wide text-sm text-black font-semibold">
+          <span> {{ surveylist.description }} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="py-4">
+  <div
+    class="
+      max-w-7xl
+      mx-auto
+      bg-white
+      rounded-xl
+      shadow-md
+      md:max-w-2xl
+      lg:px-8
+      sm:px-6
+      border-t-4 border-red-500
+    "
+  >
+    <h1 class="text-2xl font-medium text-center"> Questions</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+          {% for question in questions %}
+          <p>
+            {{ question.question }}
+          </p>
+        <div class="overflow-auto">
+        <div class="p-4">
+          {% for choice in question.choices.all %}
+          <div class=" tracking-wide text-sm text-black font-semibold">
+            <input
+            type="radio"
+            name="{{ choice }}" id="{{ choice.id }}" value="{{ choice.choice }}"
+            class="
+            "
+            />
+            <!-- <spa type="text" name="" id="" value="{{ choice.choice }}"> -->
+            <span  for="choice" >{{ choice.choice }}</span>
+            <br>
+          </div>
+          {% endfor %}
+        </div>
+        <hr>
+      </div>
+      {% endfor %}
+      <button
+        type="submit"
+        class="
+          rounded-lg
+          bg-red-400
+          text-white text-sm
+          font-medium
+          mx-auto
+          px-4
+          py-2
+          mb-4
+          hover:bg-red-600
+          transition
+          duration-700
+          ease-in-out
+          tracking-wider
+        "
+      >
+        Submit
+      </button>
+    </form>
+    
+  </div>
+</div>
+
+<!-- component -->
+{% endblock content %}

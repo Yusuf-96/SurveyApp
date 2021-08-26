@@ -1,0 +1,243 @@
+{% extends "base.html"%} 
+{% load static %}
+{% block content %}
+
+<!-- component -->
+<div class="">
+  <div
+    class="
+      max-w-7xl
+      mx-auto
+      bg-white
+      rounded-xl
+      shadow-md
+      md:max-w-2xl
+      mt-5
+      lg:px-8
+      sm:px-6
+      border-t-4 border-red-500
+    "
+  >
+    <h1 class="text-2xl font-medium text-center">Create Question</h1>
+    <div class="flex flex-items justify-end mx-auto" x-data="{open:false}">
+      <div class="bg-white rounded-lg w-1/2 hidden">
+    <div class="flex flex-col items-start p-4">
+      <div class="flex items-center w-full">
+        <div class="text-gray-900 font-medium text-lg">My modal title</div>
+		<svg class="ml-auto fill-current text-gray-700 w-6 h-6 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+			<path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
+     	</svg>
+      </div>
+      <hr>
+      <div class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      <hr>
+      <div class="ml-auto">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Agree
+        </button>
+        <button class="bg-transparent hover:bg-gray-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+       <button
+            class="p-0 w-10 h-10 bg-green-400 rounded-full hover:bg-green-500 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none"
+          >
+            <svg
+              viewBox="0 0 20 20"
+              enable-background="new 0 0 20 20"
+              class="w-6 h-6 inline-block"
+            >
+              <path
+                fill="#FFFFFF"
+                d="M16,10c0,0.553-0.048,1-0.601,1H11v4.399C11,15.951,10.553,16,10,16c-0.553,0-1-0.049-1-0.601V11H4.601
+                                    C4.049,11,4,10.553,4,10c0-0.553,0.049-1,0.601-1H9V4.601C9,4.048,9.447,4,10,4c0.553,0,1,0.048,1,0.601V9h4.399
+                                    C15.952,9,16,9.447,16,10z"
+              />
+            </svg>
+          </button>
+    </div>
+    <form action="{% url 'survey:choice' %}" method="POST">
+      {% csrf_token %}
+      <div class="overflow-auto">
+        <div class="p-4">
+          <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            <p class="form-select">{{ form.as_p }}</p>
+            
+         
+          <!-- <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            <input>
+              <label for="" class="block">Choices</label>
+              <input
+                type="text"
+                value=""
+                class="
+                  w-full
+                  h-10
+                  border-b-2 border-red-300
+                  focus:outline-none
+                  transition
+                  duration-300
+                  ease-out
+                  focus:border-red-600
+                  form-input
+                "
+                placeholder="Form description"
+              />
+            </p>
+          </div> -->
+        
+          </div>
+          
+        </div>
+      </div>
+      <!-- <div class="overflow-auto">
+        <div class="p-4">
+          <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            <input>
+              <label for="" class="block">Description</label>
+              <input
+                type="text"
+                value=""
+                class="
+                  w-full
+                  h-10
+                  border-b-2 border-red-300
+                  focus:outline-none
+                  transition
+                  duration-300
+                  ease-out
+                  focus:border-red-600
+                  form-input
+                "
+                placeholder="Form description"
+              />
+            </p>
+          </div>
+        </div>
+      </div> -->
+     
+      <div class=" flex flex-items justify-start mx-auto">
+         <button
+        type="submit"
+        class="
+          rounded-lg
+          bg-red-400
+          text-white text-sm
+          font-medium
+          px-4
+          py-2
+          mb-4
+          hover:bg-red-600
+          transition
+          duration-700
+          ease-in-out
+          tracking-wider
+        "
+      >
+        Save
+      </button>
+           
+          </div>
+      
+    </form>
+    
+    
+  </div>
+  
+</div>
+<!-- <div class="">
+  <div
+    class="
+      max-w-7xl
+      mx-auto
+      bg-white
+      rounded-xl
+      shadow-md
+      md:max-w-2xl
+      mt-5
+      lg:px-8
+      sm:px-6
+      border-t-4 border-red-500
+    "
+  >
+    <h1 class="text-2xl font-medium text-center">Create Question</h1>
+    <form action="{% url 'survey:survey-page' %}" method="POST">
+      {% csrf_token %}
+
+      <div class="overflow-auto">
+        <div class="p-4">
+          <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            <p>
+              <label for="" class="block">title</label>
+              <input
+                type="text"
+                class="
+                  w-full
+                  h-10
+                  border-b-2 border-red-300
+                  focus:outline-none
+                  transition
+                  duration-300
+                  ease-out
+                  focus:border-red-600
+                  from-input
+                "
+                placeholder="Untitled Form"
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="overflow-auto">
+        <div class="p-4">
+          <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            <input>
+              <label for="" class="block">Description</label>
+              <input
+                type="text"
+                value=""
+                class="
+                  w-full
+                  h-10
+                  border-b-2 border-red-300
+                  focus:outline-none
+                  transition
+                  duration-300
+                  ease-out
+                  focus:border-red-600
+                  form-input
+                "
+                placeholder="Form description"
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="
+          rounded-lg
+          bg-red-400
+          text-white text-sm
+          font-medium
+          mx-auto
+          px-4
+          py-2
+          mb-4
+          hover:bg-red-600
+          transition
+          duration-700
+          ease-in-out
+          tracking-wider
+        "
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div> -->
+
+<!-- component -->
+{% endblock content %}

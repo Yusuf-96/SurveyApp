@@ -1,0 +1,103 @@
+{% extends "base.html"%} 
+{% load static%}
+{% block content %}
+
+<!-- component -->
+<div class="py-6">
+  <div
+    class="
+      max-w-7xl
+      mx-auto
+      bg-white
+      rounded-xl
+      shadow-md
+      md:max-w-2xl
+     
+      lg:px-8
+      sm:px-6
+      border-t-4 border-red-500
+    "
+  >
+    <h1 class="text-2xl font-medium text-center">Survey</h1>
+    <div class="overflow-auto">
+      <div class="p-3">
+        <div class="tracking-wide text-lg text-black font-semibold">
+          <span> {{ surveylist.title }} </span>
+        </div>
+        <div class="tracking-wide text-lg text-black font-semibold">
+          <span> {{ surveylist.description }} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="py-12">
+  <div
+    class="
+      max-w-7xl
+      mx-auto
+      bg-white
+      rounded-xl
+      shadow-md
+      md:max-w-2xl
+      mt-5
+      lg:px-8
+      sm:px-6
+      border-t-4 border-red-500
+    "
+  >
+    <h1 class="text-2xl font-medium text-center">Create Question</h1>
+    <form action="#" method="POST">
+      {% csrf_token %}
+          {% for q in questions %}
+          <p>
+            {{ q.question }}
+          </p>
+        <div class="overflow-auto">
+        <div class="p-4">
+          <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            {% for ch in q.choices.all %}
+            <input
+            type="radio"
+            name="" id="choice" value="{{ch.choice}}"
+            class="
+            form-radio
+            "
+            />
+            <label  for="choice" class="form-select ">{{ ch.choice }}</label>
+            <br>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <button
+        type="submit"
+        class="
+          rounded-lg
+          bg-red-400
+          text-white text-sm
+          font-medium
+          mx-auto
+          px-4
+          py-2
+          mb-4
+          hover:bg-red-600
+          transition
+          duration-700
+          ease-in-out
+          tracking-wider
+        "
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- component -->
+{% endblock content %}

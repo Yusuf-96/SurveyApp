@@ -1,0 +1,203 @@
+{% extends "base.html"%} 
+{% load static %}
+{% block content %}
+
+<!-- component -->
+<div class="">
+  <div
+    class="
+      max-w-7xl
+      mx-auto
+      bg-white
+      rounded-xl
+      shadow-md
+      md:max-w-2xl
+      mt-5
+      lg:px-8
+      sm:px-6
+      border-t-4 border-red-500
+    "
+  >
+    <h1 class="text-2xl font-medium text-center">Create Question</h1>
+    <form action="{% url 'survey:question-page' %}" method="POST">
+      {% csrf_token %}
+      <div class="overflow-auto">
+        <div class="p-4">
+          <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            <p class="form-select">{{ form.as_p }}</p>
+         
+          <!-- <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            <input>
+              <label for="" class="block">Choices</label>
+              <input
+                type="text"
+                value=""
+                class="
+                  w-full
+                  h-10
+                  border-b-2 border-red-300
+                  focus:outline-none
+                  transition
+                  duration-300
+                  ease-out
+                  focus:border-red-600
+                  form-input
+                "
+                placeholder="Form description"
+              />
+            </p>
+          </div> -->
+        
+          </div>
+          
+        </div>
+      </div>
+      <!-- <div class="overflow-auto">
+        <div class="p-4">
+          <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            <input>
+              <label for="" class="block">Description</label>
+              <input
+                type="text"
+                value=""
+                class="
+                  w-full
+                  h-10
+                  border-b-2 border-red-300
+                  focus:outline-none
+                  transition
+                  duration-300
+                  ease-out
+                  focus:border-red-600
+                  form-input
+                "
+                placeholder="Form description"
+              />
+            </p>
+          </div>
+        </div>
+      </div> -->
+     
+      <div class=" flex flex-items justify-start mx-auto">
+         <button
+        type="submit"
+        class="
+          rounded-lg
+          bg-red-400
+          text-white text-sm
+          font-medium
+          px-4
+          py-2
+          mb-4
+          hover:bg-red-600
+          transition
+          duration-700
+          ease-in-out
+          tracking-wider
+        "
+      >
+        Save
+      </button>
+           
+          </div>
+      
+    </form>
+    
+    
+  </div>
+  
+</div>
+<!-- <div class="">
+  <div
+    class="
+      max-w-7xl
+      mx-auto
+      bg-white
+      rounded-xl
+      shadow-md
+      md:max-w-2xl
+      mt-5
+      lg:px-8
+      sm:px-6
+      border-t-4 border-red-500
+    "
+  >
+    <h1 class="text-2xl font-medium text-center">Create Question</h1>
+    <form action="{% url 'survey:survey-page' %}" method="POST">
+      {% csrf_token %}
+
+      <div class="overflow-auto">
+        <div class="p-4">
+          <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            <p>
+              <label for="" class="block">title</label>
+              <input
+                type="text"
+                class="
+                  w-full
+                  h-10
+                  border-b-2 border-red-300
+                  focus:outline-none
+                  transition
+                  duration-300
+                  ease-out
+                  focus:border-red-600
+                  from-input
+                "
+                placeholder="Untitled Form"
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="overflow-auto">
+        <div class="p-4">
+          <div class="uppercase tracking-wide text-sm text-black font-semibold">
+            <input>
+              <label for="" class="block">Description</label>
+              <input
+                type="text"
+                value=""
+                class="
+                  w-full
+                  h-10
+                  border-b-2 border-red-300
+                  focus:outline-none
+                  transition
+                  duration-300
+                  ease-out
+                  focus:border-red-600
+                  form-input
+                "
+                placeholder="Form description"
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="
+          rounded-lg
+          bg-red-400
+          text-white text-sm
+          font-medium
+          mx-auto
+          px-4
+          py-2
+          mb-4
+          hover:bg-red-600
+          transition
+          duration-700
+          ease-in-out
+          tracking-wider
+        "
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div> -->
+
+<!-- component -->
+{% endblock content %}
