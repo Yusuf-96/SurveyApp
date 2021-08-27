@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-j8s-(9@_l!99^g97a&tt=^@bbr*fw8=vzb91i1+x)j6x3a17ms
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["surveyportalapp.herokuapp.com"]
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["surveyportalapp.herokuapp.com"]
 
 
 # Application definition
@@ -133,6 +133,8 @@ STATICFILES_DIRS = [
     'surveyapp/static',
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -143,7 +145,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_STORAGE = 'whitenoise.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.CompressedManifestStaticFilesStorage'
 
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
