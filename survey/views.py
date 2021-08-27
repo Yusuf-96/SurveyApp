@@ -29,9 +29,6 @@ class CreateSurvey(LoginRequiredMixin, View):
         return render(request, template_name)
 
 
-        
-        
-
     def post(self, request, *args, **kwargs):
         if request.method =="POST":
             code = ''.join(random.choice(string.ascii_letters + string.digits) for x in range(30))
@@ -51,9 +48,9 @@ class CreateSurvey(LoginRequiredMixin, View):
                     options.save()
                     question.choices.add(options)
                     question.save()
-            print('form save successuful')
-            print(request.POST)
-            return redirect('survey:survey-view')
+                    print('form save successuful')
+                    print(request.POST)
+                    return redirect('survey:survey-view')
         return redirect('survey:survey-page')
 
 
