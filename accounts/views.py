@@ -31,8 +31,7 @@ def register(request):
         password1 = request.POST['password1']
 
         if password == password1:
-            user_qs = User.objects.filter(username=username)
-            if user_qs.exists():
+            if User.objects.filter(username=username).exists():
                 # massega username already taken
                 return redirect('register')
             elif User.objects.filter(email=email).exists():
